@@ -205,7 +205,7 @@ int *rcm_cuda(int *d_row_ptr, int *d_col_idx, int n, int total_edges) {
     cudaMemset(d_visited_count, 0, sizeof(int));
 
     // Compute degrees
-    int block_size = 256;
+    int block_size = 1024;
     int grid_size = (n + block_size - 1) / block_size;
     compute_degrees<<<grid_size, block_size>>>(d_row_ptr, d_degrees, n);
     cudaDeviceSynchronize();
