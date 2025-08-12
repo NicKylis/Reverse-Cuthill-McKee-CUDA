@@ -14,6 +14,7 @@ void vec_init(IntVec *v) {
     v->size = 0;
     v->data = (int*)malloc(v->cap * sizeof(int));
 }
+
 void vec_push(IntVec *v, int x) {
     if (v->size == v->cap) {
         v->cap *= 2;
@@ -21,6 +22,7 @@ void vec_push(IntVec *v, int x) {
     }
     v->data[v->size++] = x;
 }
+
 void vec_free(IntVec *v) {
     free(v->data);
     v->data = NULL;

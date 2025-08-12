@@ -97,7 +97,7 @@ __global__ void mark_visited(int *col_idx, int start, int size, int *visited, in
 }
 
 void generate_random_graph_gpu(int n, int m, int **d_row_ptr, int **d_col_idx, int *total_edges) {
-    int block_size = 256;
+    int block_size = 1024;
     int grid_size = (m + block_size - 1) / block_size;
 
     // Allocate GPU memory for edge generation
